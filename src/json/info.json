@@ -1,0 +1,23 @@
+[
+    {
+        "squadName": "Super hero squad",
+        "homeTown": "Metro City",
+        "formed": 2016,
+        "secretBase": "Super tower",
+        "active": true
+    },
+    {
+        "squadName": "Squad de la muerte",
+        "homeTown": "Mastun",
+        "formed": 2013,
+        "secretBase": "Skyland",
+        "active": false
+    },
+    {
+        "squadName": "Squad Pringao",
+        "homeTown": "Pringaocity",
+        "formed": 2014,
+        "secretBase": "Infernus",
+        "active": true
+    }
+]
