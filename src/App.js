@@ -9,7 +9,10 @@ import JugandoConJsonyProps from './JugandoConJsonyProps';
 import Eventos from './Eventos';
 import Formularios from './Formularios';
 import FormulariosControlados from './Formularios_controlados_recomendado'
-import ChildrenYPrototypes from './ChildrenYPrototypes.js'
+import ChildrenYPrototypes from './ChildrenYPrototypes'
+import Blog from './ChildrenYPrototypesv1'
+import CiclosDeVidav1 from './CiclosDeVidav1'
+import ApiFetch from './ApiFetch/ApiFetch'
 
 import './App.css';
 
@@ -48,9 +51,20 @@ class Bienvenida extends Component {
 
 class App extends Component {
 
+      // perfecto para recuperar datos el componentDidMount (llamadas a API)
+      componentDidMount() {
+        // método fetch que nos ayuda a recuperar data, devuelve una promesa
+        // especificamos su endpoint, nos devuelve metodos y parseamos a json! que es como queremos el data
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+        // parseamos los métodos a Json, para extraer data (promesa)
+        .then(res => res.json())
+        .then(data => {
+            const bpi = data
+            this.setState({ bpi })
+        })
+    }
+
   render() {
-
-
     return (
       <div className="App">
         <header className="App-header">
@@ -105,6 +119,16 @@ class App extends Component {
           {/* // esto sirve para crear PEQUEÑOS templates layout de nuestras aplicaciones */}
           <ChildrenYPrototypes />
 
+          {/* hacemos un blog con articulos utilizando la propiedad children para pasar contenido */}
+          <Blog />
+
+          {/* ciclos de vida de los componentes, explicamos diferentes ciclos de vida y su momento de ejecución */}
+          <CiclosDeVidav1/>
+
+          {/* APIFetch, ejemplo de API fetch para recoger información desde REACT */}
+          <ApiFetch />
+
+
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
@@ -113,9 +137,6 @@ class App extends Component {
     );
   }
 }
-
-
-
 
 
 
