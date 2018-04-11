@@ -13,6 +13,7 @@ import ChildrenYPrototypes from './ChildrenYPrototypes'
 import Blog from './ChildrenYPrototypesv1'
 import CiclosDeVidav1 from './CiclosDeVidav1'
 import ApiFetch from './ApiFetch/ApiFetch'
+import CiclosDeVidav2 from './CiclosDeVidav2'
 
 import './App.css';
 
@@ -127,6 +128,9 @@ class App extends Component {
 
           {/* APIFetch, ejemplo de API fetch para recoger información desde REACT */}
           <ApiFetch />
+
+          {/* más ciclos de vida, componentWillRecieveProps */}
+          <CiclosDeVidav2/>
 
 
         </header>
