@@ -8,6 +8,7 @@ const ANIMAL_NAMES = {
     dolphin:"ballena",
     bear:"panda"
 }
+const ANIMALS = Object.keys(ANIMAL_NAMES)
 
 class Animal extends Component {
     state = {animal: ANIMAL_NAMES[this.props.animal]}
@@ -47,6 +48,9 @@ Animal.propTypes = {
 // añadimos un default para ya que en el primer render mueste almenos un tipo de animal y n deje de funcionar el component
 // como vemos las proptypes se enlazan con el componente a travez del nombre del componente .  "propTypes o defaultProps"
 // así le etamos pasando por props a ese componente información
+
+// en el refactor de código vemos que esto ya no hace falta ya que en el componente
+// CiclosDeVidav2 ya le estamos pasando un valor por defecto en el estado, entonces lo quitariamos
 Animal.defaultProps = {
     animal : "cat"
 }
@@ -56,6 +60,18 @@ class CiclosDeVidav2 extends Component {
     // para dinamizar el cambio de tipo de animal haremos que este componente tenga un state
     // donde iremos seteando el animal que queremos mostras
     state = {animal:"bear"}
+
+    // crear botones de forma programatica
+    _renderAnimalButton = (animal) => {
+        return (
+            <button 
+            // podemos deshabilitar el botón cuando este ya ha sido clickado
+            // hacemos una comparacion de que cuando sea cirto hara que el botón se haga disabled
+            disabled = {animal === this.state.animal}
+            key={animal} 
+            onClick= {()=> this.setState({animal})}>{animal}</button>
+        )
+    }
 
     render() {
         return (
@@ -67,10 +83,12 @@ class CiclosDeVidav2 extends Component {
                 />
                 {/*  ahora hacemos unos botones donde cambiaremos el estado por animales 
                 que hara que se pase al componente hijo por props */}
-                <button onClick= {()=> this.setState({animal:"cat"})}>tipo gato</button>
+                {/* <button onClick= {()=> this.setState({animal:"cat"})}>tipo gato</button>
                 <button onClick= {()=> this.setState({animal:"dolphin"})}>tipo delphin</button>
-                <button onClick= {()=> this.setState({animal:"bear"})}>tipo de oso</button>
+                <button onClick= {()=> this.setState({animal:"bear"})}>tipo de oso</button> */}
 
+                {/* buttons de forma programática hace un mapeo segun la cantidad de propiedades en el objeto */}
+                {ANIMALS.map(this._renderAnimalButton)} 
             </div>
         )
     }

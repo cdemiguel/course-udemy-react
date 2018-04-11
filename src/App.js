@@ -14,6 +14,9 @@ import Blog from './ChildrenYPrototypesv1'
 import CiclosDeVidav1 from './CiclosDeVidav1'
 import ApiFetch from './ApiFetch/ApiFetch'
 import CiclosDeVidav2 from './CiclosDeVidav2'
+import CiclosDeVidav3 from './CiclosDeVidav3'
+import CiclosDeVidav4 from './CiclosDeVidav4'
+import CiclosDeVidav5 from './CiclosDeVidav5'
 
 import './App.css';
 
@@ -132,6 +135,21 @@ class App extends Component {
           {/* más ciclos de vida, componentWillRecieveProps */}
           <CiclosDeVidav2/>
 
+          {/* más ciclos de vida, shouldComponentUpdate, debe devolver un valor 
+          booleano que en el caso true indicará que el componente se ha de volver a renderizar 
+          si no se escribe siempre será true, se ejecuta despues del componentWillRecieveProps */}
+          <CiclosDeVidav3/>
+
+          {/* más ciclos de vida, componentWillUpdate */}
+          <CiclosDeVidav4 />
+
+          {/* más ciclos de vida, componentWillUnmount
+          cancelar peticiones a la red
+          eliminar suscripciones eventos dom
+          limpiar intervalos
+          limpiar recursos que no vamos a utilizar mas 
+          no cambiar el estado */}
+          <CiclosDeVidav5 />
 
         </header>
         <p className="App-intro">
