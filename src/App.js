@@ -17,6 +17,7 @@ import CiclosDeVidav2 from './CiclosDeVidav2'
 import CiclosDeVidav3 from './CiclosDeVidav3'
 import CiclosDeVidav4 from './CiclosDeVidav4'
 import CiclosDeVidav5 from './CiclosDeVidav5'
+import CiclosDeVidav6 from './CiclosDeVidav6'
 
 import './App.css';
 
@@ -150,6 +151,11 @@ class App extends Component {
           limpiar recursos que no vamos a utilizar mas 
           no cambiar el estado */}
           <CiclosDeVidav5 />
+
+          {/* IMPORTANTE más ciclos de vida, componentDidCatch, lo que hace es controlar los errores
+          que vienen de otras funciones de estados de vida de componentes
+          siempre deberíamos tener un punto para controlar estos errores para evitar que react desmonte el componente */}
+          <CiclosDeVidav6 />
 
         </header>
         <p className="App-intro">

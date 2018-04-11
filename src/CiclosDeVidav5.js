@@ -28,7 +28,7 @@ class ComponenteADesmontar extends Component {
         ) 
 
     }
-
+    
     render() {
         return (
             <div>
